@@ -2,7 +2,7 @@ Identifying emerging patterns in yearly breeding bird surveys conducted
 at the MSUM Regional Science Center
 ================
 MaryJo Nelson
-2021-03-11
+2021-03-25
 
 ## Abstract
 
@@ -31,33 +31,38 @@ the state of the ecosystem at the Regional Science Center.
 
 ## Introduction
 
-\#\#\# cite some peer reviewed sources
-
 ## Methods
 
-1.  load packages and import data from excel sheets
-2.  join tables with common variable (point\_id) to be able to make
-    comparisons - points - surveys - observations - observer - species
-    1.  omit “bird sp.” and “NA” from common name variable
-    2.  graphs to compare variables of interest
-        -   point id vs. species
-        -   species frequency
-        -   frequency of birds sighted at each point
-3.  Filter for year
-    1.  graphs
-        -   species frequency each year
-        -   point id vs species each year
-4.  Filter for black-billed cuckoo
-    1.  count
-    2.  graphs
-        -   black billed cuckoo point distribution
+### Data Aquisition
 
-## Analysis
+I am using data collected from longitudinal bird surveys conducted at
+the MSUM Regional Science Center in 2018 and 2019 by the Geospatial
+Ecology Lab in the Biosciences Department of MSUM. I exported the data
+from a Microsoft Access database into Excel, and then read the Excel
+sheets into R using the (readxl) package (Wickham et al 2019).
+
+### Data Preparation
+
+For my data preparation, I used several functions from the (dplyr)
+package (Wickham et al 2020). The data collected was spread amongst
+several tables, with the variables I was hoping to compare all being in
+different locations. Therefore, the next step I took was to join the
+desired tables using the left\_join function. I then used the select
+function so the table would show only the variables I wanted to look at.
+This gave me one clean, large table for all the data collected. Finally,
+using this table and the filter function, I created several smaller
+tables that only contained the information for each individual year as
+well as tables for specific species, such as the Black-Billed Cuckoo.
 
 ## Results
 
-### tidbits
+## Discussion
 
--   create a folder for data
--   remember what we learned about different functions in R
--   write all steps taken down and record in readme
+## References
+
+Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020).
+dplyr: A Grammar of Data Manipulation. R package version 1.0.2.
+<https://CRAN.R-project.org/package=dplyr>
+
+Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel Files. R
+package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
