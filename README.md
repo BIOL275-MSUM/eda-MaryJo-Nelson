@@ -33,28 +33,27 @@ the state of the ecosystem at the Regional Science Center.
 
 ## Methods
 
-### Data Aquisition
+### Data Acquisition
 
 I am using data collected from longitudinal bird surveys conducted at
 the MSUM Regional Science Center in 2018 and 2019 by the Geospatial
 Ecology Lab in the Biosciences Department of MSUM. I exported the data
 from a Microsoft Access database into Excel, and then read the Excel
-sheets into R using the (readxl) package (R Core Team 2020, Wickham et
-al 2019).
+sheets into RStudio using the (readxl) package (RStudio Team 2021,
+Wickham et al 2019).
 
 ### Data Preparation
 
-I used several functions from the (dplyr) package in R Studio to prepare
-my data for analysis (RStudio Team (2021, Wickham et al 2020). The data
-collected was spread amongst several tables, with the variables I was
-hoping to compare all being in different locations. Therefore, the next
-step I took was to join the desired tables using the left\_join
-function. I then used the select function so the table would show only
-the variables I wanted to look at. This gave me one clean, large table
-for all the data collected. Finally, using this table and the filter
-function, I created several smaller tables that only contained the
-information for each individual year as well as tables for specific
-species, such as the Black-Billed Cuckoo.
+The data collected was spread amongst several tables, with the variables
+I was hoping to compare all being in different locations. Therefore, the
+next step I took was to join the desired tables using the left\_join
+function in (dplyr). I then used the select function in (dplyr) so the
+table would show only the variables I wanted to look at (Wickham et al
+2020). This gave me one clean, large table for all the data collected.
+Finally, using this table and the base R filter function, I created
+several smaller tables that only contained the information for each
+individual year, transect, and specific species, such as the
+Black-Billed Cuckoo (R Core Team 2020).
 
 ## Results
 
