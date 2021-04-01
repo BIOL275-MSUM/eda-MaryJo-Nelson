@@ -5,27 +5,42 @@ library(tidyverse)
 library(readxl)
 library(lubridate)
 library(sf)
+library(cowplot)
+library(googleway)
+library(ggrepel)
+library(ggspatial)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgeos)
+library(sp)
 
-
+theme_set(theme_bw())
 
 # Observations Data ----------------------------------------------------------
 
-(ob <- read_excel("Bird Survey Data/observations.xlsx"))
+(ob <- read_excel("Bird Survey Data/observations.xlsx") %>%
+   select(-dttm_created))
 (ob_sna <- read_excel("Bird Survey Data/observations_sna.xlsx"))
 
 
 # Survey Data -------------------------------------------------------------
 
-(sur <- read_excel("Bird Survey Data/surveys.xlsx"))
+(sur <- read_excel("Bird Survey Data/surveys.xlsx") %>%
+   filter(!is_shadow) %>%
+   select(-dttm_created))
 
 # Point Data --------------------------------------------------------------
 
-(pts <- read_excel("Bird Survey Data/points.xlsx"))
-(pc <- read_excel("Bird Survey Data/point_coverage.xlsx"))
+(pts <- read_excel("Bird Survey Data/points.xlsx") %>%
+   select(-dttm_created) %>%
+   select(-lat, -long))
+(pc <- read_excel("Bird Survey Data/point_coverage.xlsx") %>%
+    select(-transect_name, -point_num))
 
 # Observer Data -----------------------------------------------------------
 
-(observer <- read_excel("Bird Survey Data/observers.xlsx"))
+(observer <- read_excel("Bird Survey Data/observers.xlsx") %>%
+   select(-dttm_created))
 
 # Species Data ------------------------------------------------------------
 
@@ -34,19 +49,22 @@ library(sf)
 # Join Bird Data Tables ---------------------------------------------------
 
 d <-
-  pts %>% 
-  select(-dttm_created) %>% 
-  left_join(sur, by = "point_id") %>% 
-  select(-dttm_created) %>% 
-  select(-lat, -long) %>%
+  sur %>% 
+  left_join(pts, by = "point_id") %>%
+  left_join(pc, by = "point_id") %>% 
   left_join(ob, by = "survey_id") %>% 
-  select(-dttm_created) %>% 
   left_join(observer, by = "observer_id") %>% 
-  select(-dttm_created) %>% 
-  left_join(sp, by = "species_id") 
+  left_join(sp, by = "species_id") %>%
+  pivot_longer(cols = c(n_0_50, n_50_100, n_100_), names_to="distance", values_to="n_indiv") %>%
+  filter(!is.na(n_indiv)) %>%
+  uncount(weights = n_indiv)
 
-(d <- select(d, point_id, transect_name, survey_date, survey_time, observation_notes, data_entry_notes,
-             observer_name, PRIMARY_COM_NAME))
+(d <- select(d, point_id, transect_name, PRIMARY_COM_NAME, survey_date, survey_time,distance, observation_notes, data_entry_notes,
+             observer_name, herbaceous, shrub, forest, river, bare, wind_speed_mean, temp, cloud_cov) %>%
+    mutate(point_id = as_factor(point_id))
+    )
+
+    
 
 
 
@@ -67,6 +85,9 @@ d <-
 
 (abc_c <- filter(abc, observer_name == "Chris"))
 
+# Filter by Transect ------------------------------------------------------
+
+
 
 # Filter Black-billed Cuckoo ------------------------------------------------
 
@@ -84,7 +105,31 @@ d <-
 (bbc_o <- count(bbc, observer_name))
 
 
+# MAP ATTEMPT -------------------------------------------------------------
+
+#failure
+world <- ne_countries(scale = "medium", returnclass = "sf")
+class(world)
+
+ggplot(data = world) +
+  geom_sf() +
+  coord_sf(xlim = c(-96.48, -96.42), ylim = c(46.85, 46.88), expand = FALSE)
+
+#this works, but find a way to get satellite imagery underneath
+ggplot(data = pts) +
+  geom_jitter(mapping = aes(x = long, y = lat, color = transect_name))
+
 # GRAPHS ------------------------------------------------------------------
+
+# Bar graph, observation frequency per day
+
+#2019
+ggplot(data = nineteen) +
+  geom_bar(mapping = aes(x = survey_date))
+
+#2018
+ggplot(data = eighteen) +
+  geom_bar(mapping = aes(x = survey_date))
 
 
 # Scatter Plot, point id vs. date -----------------------------------------
@@ -132,11 +177,16 @@ ggplot(data = eighteen) +
 # Scatter Plot species vs time
 
 ggplot(data = abc) +
-  geom_jitter(mapping = aes(x = PRIMARY_COM_NAME, y = survey_time, color = point_id), 
+  geom_jitter(mapping = aes(x = survey_time, y = PRIMARY_COM_NAME), 
               alpha = .2) +
   theme(
     axis.text.x = element_text(angle = 45, size = rel(.5))
   )
+
+# Line Graph, survey time
+
+ggplot(data = d) +
+  geom_line(mapping = aes(x = survey_time, y = PRIMARY_COM_NAME))
 
 # Bar graph, species frequency --------------------------------------------
 
@@ -221,5 +271,37 @@ ggplot(data = bbc) +
 ggplot(data = bbc) +
   geom_jitter(mapping = aes(x = point_id, y = survey_time, color = observer_name),
               alpha = .5)
-           
-           
+
+
+# BAR GRAPHS, environmental factors ---------------------------------------
+
+#herbaceous
+ggplot(data = bbc) +
+  geom_bar(mapping = aes(x = herbaceous)) +
+  scale_x_continuous(breaks = seq(0, 100, 10), limits = c(0, 100)) +
+  scale_y_continuous(breaks = seq(0, 6, 1), limits = c(0, 6))
+
+#shrub
+ggplot(data = bbc) +
+  geom_bar(mapping = aes(x = shrub)) +
+  scale_x_continuous(breaks = seq(0, 100, 10), limits = c(0, 100)) +
+  scale_y_continuous(breaks = seq(0, 6, 1), limits = c(0, 6))
+
+#forest
+ggplot(data = bbc) +
+  geom_bar(mapping = aes(x = forest)) +
+  scale_x_continuous(breaks = seq(0, 100, 10), limits = c(0, 100)) +
+  scale_y_continuous(breaks = seq(0, 6, 1), limits = c(0, 6))
+
+#river
+ggplot(data = bbc) +
+  geom_bar(mapping = aes(x = river)) +
+  scale_x_continuous(breaks = seq(0, 100, 10), limits = c(0, 100)) +
+  scale_y_continuous(breaks = seq(0, 6, 1), limits = c(0, 6))
+
+#bare
+ggplot(data = bbc) +
+  geom_bar(mapping = aes(x = bare)) +
+  scale_x_continuous(breaks = seq(0, 100, 10), limits = c(0, 100)) +
+  scale_y_continuous(breaks = seq(0, 6, 1), limits = c(0, 6))
+

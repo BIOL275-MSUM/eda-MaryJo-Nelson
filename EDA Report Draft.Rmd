@@ -1,0 +1,108 @@
+---
+title: "Report Draft"
+output: html_notebook
+---
+
+## Abstract
+
+Long-term studies of the presence and distribution of species within an ecosystem can provide an understanding of the health of that ecosystem over time, thus aiding researchers in assessing the necessity of conservation efforts for those species, and in determining the efficacy of previously implemented conservation efforts. For the past three years, students in the Geospatial Ecology Lab have been conducting breeding bird surveys at the MSUM Regional Science Center, and my goal is to conduct an exploratory data analysis to determine if any patterns have begun to emerge by looking at broad population movement in space and time, as well as patterns in behavior and habitat selection within individual species. Specifically, I will look at the distribution of the Black-billed Cuckoo and assess what environmental variables might affect its habitat selection, as this pertains directly to research that I will be conducting this summer. With only three years of data, it might be too soon to make any significant assumptions about longitudinal changes in populations, however I am hoping to get a good idea of the distribution of various species with regard to location, habitat, and the time of day/year they are most likely to be observed. Having this information will provide the basis for asking more specific research questions in the future, and beginning a broad analysis at this stage in the project can make it easier to make comparisons to future data about the state of the ecosystem at the Regional Science Center.
+
+## Introduction
+  ### cite some peer reviewed sources
+
+## Methods
+
+### Data Aquisition
+
+I am using data collected from longitudinal bird surveys conducted at the MSUM Regional Science Center in 2018 and 2019 by the Geospatial Ecology Lab in the Biosciences Department of MSUM. I exported the data from a Microsoft Access database into Excel, and then read the Excel sheets into R using the (readxl) package (Wickham et al 2019).  
+
+
+### Data Preparation
+
+For my data preparation, I used several functions from the (dplyr) package (Wickham et al 2020). The data collected was spread amongst several tables, with the variables I was hoping to compare all being in different locations. Therefore, the next step I took was to join the desired tables using the left_join function. I then used the select function so the table would show only the variables I wanted to look at. This gave me one clean, large table for all the data collected. Finally, using this table and the filter function, I created several smaller tables that only contained the information for each individual year as well as tables for specific species, such as the Black-Billed Cuckoo.   
+
+cite package (dplyr, readxl, etc)
+
+
+1. Load packages and import data from excel sheets
+2. Join tables with common variable (point_id) to be able to make comparisons
+        - points
+        - surveys
+        - observations
+        - observer
+        - species
+    a. omit "bird sp." and "NA" from common name variable
+    b. graphs to compare variables of interest
+        - point id vs. species
+        - species frequency
+        - frequency of birds sighted at each point, distinguishing transects
+3. Filter for year
+    a. graphs
+        - point id vs date
+        - species frequency each year
+        - point id vs species each year
+4. Filter for black-billed cuckoo
+    a. count
+    b. graphs
+        - black billed cuckoo point distribution, distinguishing transects
+
+## Results
+
+## Discussion 
+
+
+## References
+
+Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020). dplyr: A Grammar of Data Manipulation.
+  R package version 1.0.2. https://CRAN.R-project.org/package=dplyr
+  
+Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel Files. R package version 1.3.1.
+  https://CRAN.R-project.org/package=readxl
+
+
+https://wac.colostate.edu/resources/writing/guides/cse/ (name and author format)
+example: I downloaded data from the PhagesDB website (Pittsburgh Bacteriophage Institute 2010).
+
+cite R(your version), r studio, and packages, not tidyverse (too broad), cite specific packages
+
+citation()
+citation("dplyr")
+citation("ggplot2")
+R.Version()
+RStudio.Version()
+
+CSE GUIDELINES
+The reference list should begin on a new page titled “References” or “Cited References” (with no quotation marks, underlining, etc.), centered at the top of the page. 
+It should be double-spaced just like the rest of your paper. 
+Reference list entries should be alphabetized by the first word of each entry (typically the author’s last name).
+Use initials for authors’ first and middle names.
+Do not underline or italicize titles.
+Abbreviate journal titles and publisher names.
+Only works cited in your paper should appear in the reference list.
+
+### tidbits
+- create a folder for data
+- remember what we learned about different functions in R
+- write all steps taken down and record in readme
+
+### next steps
+- try to join 2019 date vs id with bbc date vs id
+- do some calculations
+
+-likelihood of students observing bbc 0,1,2,3,etc. days after M was with
+-mapping points
+-filter for different environmental factors
+
+-filter for transects
+-species distribution
+-likelihood of given species in each transect/point
+-change limits of environmental factors all to 100
+
+-can I do #pivot_longer(cols = c(n_0_50, n_50_100, n_100_), names_to="distance", values_to="n_indiv")
+  with the herbaceous, shrub, etc.???
+
+
+#Peer Review
+
+ tdedvall
+
