@@ -1,7 +1,62 @@
 ---
 title: "Report Draft"
 output: html_notebook
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
+
+```{r load packages}
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(sf)
+library(cowplot)
+library(googleway)
+library(ggrepel)
+library(ggspatial)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgeos)
+library(sp)
+library(suncalc)
+```
+
+```{r read in data}
+# Observations
+ob <- read_excel("Bird Survey Data/observations.xlsx") %>%
+   select(-dttm_created)
+ob_sna <- read_excel("Bird Survey Data/observations_sna.xlsx")
+
+# Surveys
+sur <- read_excel("Bird Survey Data/surveys.xlsx") %>%
+   filter(!is_shadow) %>%
+   select(-dttm_created) %>%
+   mutate(
+     survey_date = date(survey_date),
+     # survey_dttm = paste(
+     #   as.character(survey_date),
+     #   as.character(survey_time) %>% 
+     #     str_sub(12, 19)
+     # ) %>% 
+     #   as_datetime(),
+     survey_mss = hour(survey_time)*60 + minute(survey_time) - 330
+     )
+
+# Point Data
+pts <- read_excel("Bird Survey Data/points.xlsx") %>%
+   select(-dttm_created)
+pc <- read_excel("Bird Survey Data/point_coverage.xlsx") %>%
+    select(-transect_name, -point_num)
+
+# Observer Data
+observer <- read_excel("Bird Survey Data/observers.xlsx") %>%
+   select(-dttm_created)
+
+
+
+```
+
 
 ## Abstract
 
@@ -100,6 +155,9 @@ Only works cited in your paper should appear in the reference list.
 
 -can I do #pivot_longer(cols = c(n_0_50, n_50_100, n_100_), names_to="distance", values_to="n_indiv")
   with the herbaceous, shrub, etc.???
+  
+  --4/6 CONTINUE ADDING CODE TO RMD, WRITE INTRODUCTION
+  --GRAPHS: TIME, COMPARING LANDSCAPE FACTORS FOR BBC, 
 
 
 #Peer Review

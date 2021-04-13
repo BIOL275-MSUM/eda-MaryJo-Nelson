@@ -1,8 +1,16 @@
-Identifying emerging patterns in yearly breeding bird surveys conducted
-at the MSUM Regional Science Center
-================
-MaryJo Nelson
-2021-03-26
+
+<img src="https://www2.mnstate.edu/uploadedImages/Content/Marketing/logos/MSUM_Signature_Vert_Color.jpg" alt="MSUM logo" width="200" style="float:right"/>
+
+# Identifying Emerging Patterns in Yearly Breeding Bird Surveys Conducted at the MSUM Regional Science Center
+
+MaryJo Nelson, Dr. Chris Merkord
+
+Biosciences Department, Minnesota State University Moorhead, 1104 7th
+Avenue South, Moorhead, MN 56563 USA
+
+<img src="Images/black-billed-cuckoo_flickr-1-adult.jpg" width="1000"/>
+
+Photo: Tom Murray/Flickr (CC BY NC 2.0)
 
 ## Abstract
 
@@ -42,6 +50,10 @@ from a Microsoft Access database into Excel, and then read the Excel
 sheets into RStudio using the (readxl) package (RStudio Team 2021,
 Wickham et al 2019).
 
+![](Images/Summer%20Bird%20Survey%20Map.png)
+
+can write legend here
+
 ### Data Preparation
 
 The data collected was spread amongst several tables, with the variables
@@ -55,22 +67,40 @@ several smaller tables that only contained the information for each
 individual year, transect, and specific species, such as the
 Black-Billed Cuckoo (R Core Team 2020).
 
+### Data Analysis
+
 ## Results
+
+### When is the best time of summer to see breeding birds?
+
+Number of Individual Bird Observations Per Week
+
+![](README_files/figure-gfm/histograms,%20date%20vs.%20observation%20count-1.png)<!-- -->
+
+### When is the best time of day to see breeding birds?
+
+![](README_files/figure-gfm/time%20of%20observations,%20all-1.png)<!-- -->
+
+![](README_files/figure-gfm/bbc%20time-1.png)<!-- -->
+
+### What landscape variables correlate with where Black-billed Cuckoos are found?
+
+![](README_files/figure-gfm/bbc%20landscape%20factors-1.png)<!-- -->
 
 ## Discussion
 
 ## References
 
-Hadley Wickham, Romain François, Lionel Henry and Kirill Müller (2020).
-dplyr: A Grammar of Data Manipulation. R package version 1.0.2.
-<https://CRAN.R-project.org/package=dplyr>
+-   Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
+    (2020). dplyr: A Grammar of Data Manipulation. R package version
+    1.0.2. <https://CRAN.R-project.org/package=dplyr>
 
-Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel Files. R
-package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
+-   Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel Files.
+    R package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
 
-R Core Team (2020). R: A language and environment for statistical
-computing. R Foundation for Statistical Computing, Vienna, Austria. URL
-<https://www.R-project.org/>.
+-   R Core Team (2020). R: A language and environment for statistical
+    computing. R Foundation for Statistical Computing, Vienna, Austria.
+    URL <https://www.R-project.org/>.
 
-RStudio Team (2021). RStudio: Integrated Development Environment for R.
-RStudio, PBC, Boston, MA URL <http://www.rstudio.com/>.
+-   RStudio Team (2021). RStudio: Integrated Development Environment
+    for R. RStudio, PBC, Boston, MA URL <http://www.rstudio.com/>.
