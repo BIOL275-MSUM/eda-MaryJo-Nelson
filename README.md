@@ -82,11 +82,23 @@ Team 2020).
 ### Data Analysis
 
 The first thing I did in my analysis of the data was to make a series of
-graphs using many functions in (ggplot2) to compare various patterns to
-each other in order to determine if any beginning patterns were
-beginning to emerge (Wickham 2016). One of the things I wanted to look
-at was when surveyors were most likely to observe birds, both with with
-regard to time of day and time of year, so I created
+graphs using many functions in (ggplot2) to compare various variables to
+each other in order to determine if any patterns were beginning to
+emerge (Wickham 2016). One of the things I wanted to look at was when
+surveyors were most likely to observe birds, both with with regard to
+time of day and time of year, so I created several histograms using
+geom\_histogram in (ggplot2) to visualize the number of observances that
+were occurring, regardless of species, at each time of day and year. I
+did this for all years combines, broken down by year, and also filtered
+for the Black-billed Cuckoo species. My second goal was to see if any
+patterns could be seen with regard to the types of landscape variables
+present where Black-billed Cuckoos had been observed. Prior to the very
+first survey, students had looked at aerial imagery of each point to
+estimate what percentage of the landscape in each area was herbaceous,
+shrub, forest, river, and bare. I used their estimations and, using the
+geom\_bar function in (ggplot2), I compared how many Black-billed Cuckoo
+observations had occurred at points with varying percentages of each
+landscape variable.
 
 ## Results
 
@@ -150,3 +162,6 @@ Black-billed Cuckoos appear to be observed later in the day.
 -   Wickham, Hadley, Romain François, Lionel Henry and Kirill Müller
     (2020). dplyr: A Grammar of Data Manipulation. R package version
     1.0.2. <https://CRAN.R-project.org/package=dplyr>
+
+-   Wickham, Hadley (2021). tidyr: Tidy Messy Data. R package version
+    1.1.3. <https://CRAN.R-project.org/package=tidyr>
