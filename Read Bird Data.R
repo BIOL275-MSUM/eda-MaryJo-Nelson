@@ -136,7 +136,6 @@ ggplot(data = pts) +
 
 #map image
 
-![Summer Bird Survey Map](/Users/maryjonelson/Desktop/Extracurricular/GEL lab/GEL/Summer Bird Surveys/eda-MaryJo-Nelson/Images/Summer Bird Survery Map.png)
 
 # GRAPHS ------------------------------------------------------------------
 
@@ -231,6 +230,26 @@ ggplot(data = d) +
            label = "Cutoff time for surveys\n4 hours (240 minutes)\nafter sunrise") +
   labs(x = "Minutes after Sunrise", y = "Number of Observations", 
        title = "Most bird detections occur within 4 hours of sunrise") + 
+  theme_classic()
+
+ggplot(data = eighteen) +
+  geom_vline(xintercept = 240, linetype = "dashed", size = 1, color = "red") +
+  geom_histogram(mapping = aes(x = survey_mss),fill = "#4B0082", 
+                 color = "black", binwidth = 30, alpha = .5
+  ) +
+  annotate(geom = "text", x = 250, y = 1000, hjust = 0) +
+  labs(x = "Minutes after Sunrise", y = "Number of Observations", 
+       title = "Time of observations 2018") + 
+  theme_classic()
+
+ggplot(data = nineteen) +
+  geom_vline(xintercept = 240, linetype = "dashed", size = 1, color = "red") +
+  geom_histogram(mapping = aes(x = survey_mss),fill = "#5E5A80", 
+                 color = "black", binwidth = 30, alpha = .5
+  ) +
+  annotate(geom = "text", x = 250, y = 1000, hjust = 0) +
+  labs(x = "Minutes after Sunrise", y = "Number of Observations", 
+       title = "Time of Observations 2019") + 
   theme_classic()
 
 # Histogram, bbc survey time

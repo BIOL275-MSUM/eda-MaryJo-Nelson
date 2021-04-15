@@ -10,6 +10,8 @@ Avenue South, Moorhead, MN 56563 USA
 
 <img src="Images/black-billed-cuckoo_flickr-1-adult.jpg" width="1000"/>
 
+Black-billed Cuckoo
+
 Photo: Tom Murray/Flickr (CC BY NC 2.0)
 
 ## Abstract
@@ -39,6 +41,14 @@ the state of the ecosystem at the Regional Science Center.
 
 ## Introduction
 
+### Longitudinal Breeding Bird Surveys:
+
+![](Images/Summer%20Bird%20Survey%20Map.png)
+
+Map of survey points within Orange, Blue, Purple, and Yellow transects.
+
+### Black-billed Cuckoos:
+
 ## Methods
 
 ### Data Acquisition
@@ -50,36 +60,53 @@ from a Microsoft Access database into Excel, and then read the Excel
 sheets into RStudio using the (readxl) package (RStudio Team 2021,
 Wickham et al 2019).
 
-![](Images/Summer%20Bird%20Survey%20Map.png)
-
-can write legend here
-
 ### Data Preparation
 
 The data collected was spread amongst several tables, with the variables
 I was hoping to compare all being in different locations. Therefore, the
 next step I took was to join the desired tables using the left\_join
 function in (dplyr). I then used the select function in (dplyr) so the
-table would show only the variables I wanted to look at (Wickham et al
-2020). This gave me one clean, large table for all the data collected.
-Finally, using this table and the base R filter function, I created
-several smaller tables that only contained the information for each
-individual year, transect, and specific species, such as the
-Black-Billed Cuckoo (R Core Team 2020).
+table would show only the variables I wanted to look at, including point
+ID, species observed, survey date and time, observer, and landscape and
+environmental factors (Wickham et al 2020). This gave me one large,
+clean table for all the data collected. For the survey time, I used the
+mutate function in (dplyr), the hour and minute functions in
+(lubridate), as well as some basic math functions in base R to convert
+the time that each survey was recorded into minutes passed since sunrise
+(Wickham et al 2020; Grolemund 2011; R Core Team 2020). Finally, using
+this table and the base R filter function, I created several smaller
+tables that only contained information for each individual year,
+transect, and specific species, such as the Black-Billed Cuckoo (R Core
+Team 2020).
 
 ### Data Analysis
+
+The first thing I did in my analysis of the data was to make a series of
+graphs using many functions in (ggplot2) to compare various patterns to
+each other in order to determine if any beginning patterns were
+beginning to emerge (Wickham 2016). One of the things I wanted to look
+at was when surveyors were most likely to observe birds, both with with
+regard to time of day and time of year, so I created
 
 ## Results
 
 ### When is the best time of summer to see breeding birds?
 
-Number of Individual Bird Observations Per Week
+#### Number of Individual Bird Observations Per Week
+
+Dates with most observations inconsistent from year to year
 
 ![](README_files/figure-gfm/histograms,%20date%20vs.%20observation%20count-1.png)<!-- -->
 
 ### When is the best time of day to see breeding birds?
 
 ![](README_files/figure-gfm/time%20of%20observations,%20all-1.png)<!-- -->
+
+Time of observations ***is*** consistent from year to year.
+
+![](README_files/figure-gfm/time%20filtered%20by%20year-1.png)<!-- -->
+
+Black-billed Cuckoos appear to be observed more later in the day.
 
 ![](README_files/figure-gfm/bbc%20time-1.png)<!-- -->
 
@@ -89,14 +116,17 @@ Number of Individual Bird Observations Per Week
 
 ## Discussion
 
+### Time of Summer:
+
+### Time of Day:
+
+### Landscape Correlates for Black-billed Cuckoo Observations:
+
 ## References
 
--   Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
-    (2020). dplyr: A Grammar of Data Manipulation. R package version
-    1.0.2. <https://CRAN.R-project.org/package=dplyr>
-
--   Hadley Wickham and Jennifer Bryan (2019). readxl: Read Excel Files.
-    R package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
+-   Grolemund, Garrett and Hadley Wickham (2011). Dates and Times Made
+    Easy with lubridate. Journal of Statistical Software, 40(3), 1-25.
+    URL <https://www.jstatsoft.org/v40/i03/.>
 
 -   R Core Team (2020). R: A language and environment for statistical
     computing. R Foundation for Statistical Computing, Vienna, Austria.
@@ -104,3 +134,19 @@ Number of Individual Bird Observations Per Week
 
 -   RStudio Team (2021). RStudio: Integrated Development Environment
     for R. RStudio, PBC, Boston, MA URL <http://www.rstudio.com/>.
+
+<!-- -->
+
+-   Wickham, Hadley. ggplot2: Elegant Graphics for Data Analysis.
+    Springer-Verlag New York, 2016.
+
+<!-- -->
+
+-   Wickham, Hadley and Jennifer Bryan (2019). readxl: Read Excel Files.
+    R package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
+
+<!-- -->
+
+-   Wickham, Hadley, Romain François, Lionel Henry and Kirill Müller
+    (2020). dplyr: A Grammar of Data Manipulation. R package version
+    1.0.2. <https://CRAN.R-project.org/package=dplyr>
