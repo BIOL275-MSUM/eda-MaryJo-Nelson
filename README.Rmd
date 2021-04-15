@@ -18,7 +18,7 @@ Biosciences Department, Minnesota State University Moorhead, 1104 7th Avenue Sou
 
 Black-billed Cuckoo
 
-Photo: Tom Murray/Flickr (CC BY NC 2.0)
+*Photo: Tom Murray/Flickr (CC BY NC 2.0)*
 
 ## Abstract
 
@@ -216,7 +216,7 @@ ggarrange(t_19, t_18, ncol = 2, nrow = 1)
 
 ```
 
-Black-billed Cuckoos appear to be observed more later in the day.
+Black-billed Cuckoos appear to be observed later in the day.
 
 ```{r bbc time}
 ggplot(data = bbc) +

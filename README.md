@@ -12,7 +12,7 @@ Avenue South, Moorhead, MN 56563 USA
 
 Black-billed Cuckoo
 
-Photo: Tom Murray/Flickr (CC BY NC 2.0)
+*Photo: Tom Murray/Flickr (CC BY NC 2.0)*
 
 ## Abstract
 
@@ -106,7 +106,7 @@ Time of observations ***is*** consistent from year to year.
 
 ![](README_files/figure-gfm/time%20filtered%20by%20year-1.png)<!-- -->
 
-Black-billed Cuckoos appear to be observed more later in the day.
+Black-billed Cuckoos appear to be observed later in the day.
 
 ![](README_files/figure-gfm/bbc%20time-1.png)<!-- -->
 
