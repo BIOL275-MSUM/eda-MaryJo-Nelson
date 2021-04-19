@@ -43,11 +43,50 @@ the state of the ecosystem at the Regional Science Center.
 
 ### Longitudinal Breeding Bird Surveys:
 
+Students from the Geospatial Ecology Lab (GEL) have been conducting
+summer breeding bird surveys at the MSUM Regional Science Center since
+2018, typically between the months of mid-May to mid-July. There are
+three transects (titled orange, blue, and purple) consisting of eleven
+points each at the Regional Science Center, and in the summer of 2018 an
+additional transect (yellow) was surveyed at the nearby Bluestem Prairie
+Scientific and Natural Area. Each day, all of the points from one
+transect were surveyed, starting at or just before sunrise and
+continuing through mid to late morning. Ten minutes were spent at each
+point, during which time the survey technicians would count and record
+every individual bird they saw and what species it was. Additional
+variables recorded included the time of the observation, weather
+conditions, whether the observation was auditory or visual, and the
+distance at which the bird was seen, among others. I was only able to
+retrieve data from the first two years of the surveys, 2018 and 2019,
+which is reflected in my exploratory analysis.
+
+Below is a map of all of the survey points, with each color representing
+a transect.
+
 ![](Images/Summer%20Bird%20Survey%20Map.png)
 
-Map of survey points within Orange, Blue, Purple, and Yellow transects.
-
 ### Black-billed Cuckoos:
+
+Black-billed Cuckoos breed throughout the upper Midwest and the
+northeastern United States and migrate to South America during the
+non-breeding season. They are insectivorous and often prey on
+caterpillars and cicadas during outbreaks. The species is assigned a
+Continental Concern Score of 13/20 by Partners in Flight and designated
+a Yellow Watch List species in addition to being listed as a Species in
+Greatest Conservation Need by the Minnesota Department of Natural
+Resources, and as a Minnesota Stewardship Species by Audubon Minnesota
+(Pfannmuller et al. 2009-2013).
+
+The relationship between Black-billed Cuckoo abundance and habitat
+characteristics is poorly studied. In the upper Midwest, Black-billed
+Cuckoo abundance has been found to have a positive relationship with
+forest cover (Thogmartin and Knutson 2007). In western Minnesota,
+however, they appear to be most common in areas of thick shrub thickets
+in grasslands, with little regard to proximity to forest (Chris Merkord,
+personal observations). This brings up the possibility that the factors
+driving habitat use in the eastern, forested part of their range are
+different than the factors driving habitat use in the grasslands, as has
+been suggested by others (Eastman 1991).
 
 ## Methods
 
@@ -106,7 +145,7 @@ landscape variable.
 
 #### Number of Individual Bird Observations Per Week
 
-Dates with most observations inconsistent from year to year
+Dates with most observations are inconsistent from year to year
 
 ![](README_files/figure-gfm/histograms,%20date%20vs.%20observation%20count-1.png)<!-- -->
 
@@ -117,8 +156,6 @@ Dates with most observations inconsistent from year to year
 Time of observations ***is*** consistent from year to year.
 
 ![](README_files/figure-gfm/time%20filtered%20by%20year-1.png)<!-- -->
-
-Black-billed Cuckoos appear to be observed later in the day.
 
 ![](README_files/figure-gfm/bbc%20time-1.png)<!-- -->
 
@@ -136,9 +173,18 @@ Black-billed Cuckoos appear to be observed later in the day.
 
 ## References
 
+-   Eastman J. 1991. “Black-billed Cuckoo.” In The atlas of breeding
+    birds of Michigan., edited by R. Brewer, G. A. McPeek and Jr R. J.
+    Adams, 232-233. East Lansing: Michigan State Univ. Press.
+
 -   Grolemund, Garrett and Hadley Wickham (2011). Dates and Times Made
     Easy with lubridate. Journal of Statistical Software, 40(3), 1-25.
     URL <https://www.jstatsoft.org/v40/i03/.>
+
+-   Pfannmuller L, Niemi G, Green J, Sample B, Walton N, Zlonis E, Brown
+    T, Bracey A, Host G, Reed J, Rewinkel K, Will N. 2017. The First
+    Minnesota Breeding Bird Atlas (2009-2013).
+    <https://mnbirdatlas.org/>
 
 -   R Core Team (2020). R: A language and environment for statistical
     computing. R Foundation for Statistical Computing, Vienna, Austria.
@@ -146,6 +192,10 @@ Black-billed Cuckoos appear to be observed later in the day.
 
 -   RStudio Team (2021). RStudio: Integrated Development Environment
     for R. RStudio, PBC, Boston, MA URL <http://www.rstudio.com/>.
+
+-   Thogmartin WE, Knutson MG. 2007. Scaling local species-habitat
+    relations to the larger landscape with a hierarchical spatial count
+    model. Landscape Ecology 22:61-75.
 
 <!-- -->
 
