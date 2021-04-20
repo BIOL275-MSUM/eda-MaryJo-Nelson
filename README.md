@@ -163,13 +163,74 @@ Time of observations ***is*** consistent from year to year.
 
 ![](README_files/figure-gfm/bbc%20landscape%20factors-1.png)<!-- -->
 
+<img src="Images/BBC Science Center Map.jpg" width="700"/>
+
+<img src="Images/BBC Full Map.jpg" width="700"/>
+
 ## Discussion
 
 ### Time of Summer:
 
+-   Data from the two different years varies
+
+-   Not enough data at this point to know when is the best time of
+    summer to see breeding birds
+
 ### Time of Day:
 
+-   Data clearly shows that most observations occurred within 4 hours
+    after sunrise
+
+    -   Consistent from year to year
+
+    -   Is this true for individual species as well?
+
+-   This can inform future summer bird surveys
+
+    -   Should we aim to be finished with our survey by 4 hours after
+        sunrise?
+
+    -   There seems to be little advantage in continuing after this time
+
+-   Black-billed Cuckoo falls within this time frame, but seems to peak
+    later in day than total population
+
+    -   Keep in mind extremely small sample size (18)
+
+    -   Will this pattern continue as we collect more data?
+
 ### Landscape Correlates for Black-billed Cuckoo Observations:
+
+-   Black-billed Cuckoos are correlated with forest landscapes, our data
+    contradicts this
+
+    -   83% of observations occurred where there was at least some
+        herbaceous landcape
+
+        -   56% occurred with at least 50% herbaceous landscape
+
+    -   27% occurred where at least some forest landscape
+
+        -   11% occurred with at least 50% forest landscape
+
+-   Why do they choose herbaceous landscape here?
+
+    -   What benefits is the herbaceous landscape providing in this
+        area?
+
+-   We must take into account the very small sample size
+
+    -   is it small because there aren’t many here or because of
+        unskilled observers?
+
+    -   if because there aren’t many there, is that because there isn’t
+        much forest here?
+
+        -   We could look into what percentage of our survey area
+            consists of forest landscape
+
+    -   Will this pattern of herbaceous landscape continue as we collect
+        more data?
 
 ## References
 

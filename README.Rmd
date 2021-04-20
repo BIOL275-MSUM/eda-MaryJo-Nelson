@@ -302,23 +302,71 @@ bare <- ggplot(data = bbc) +
 (figure <- ggarrange(herb, shrub, forest, river, bare,
                     ncol = 2, nrow = 3))
 
-
 ```
+
+<img src="Images/BBC Science Center Map.jpg" width="700"/>
+
+<img src="Images/BBC Full Map.jpg" width="700"/>
 
 ## Discussion
 
 ### Time of Summer:
 
+-   Data from the two different years varies
+
+-   Not enough data at this point to know when is the best time of summer to see breeding birds
+
 ### Time of Day:
 
+-   Data clearly shows that most observations occurred within 4 hours after sunrise
+
+    -   Consistent from year to year
+
+    -   Is this true for individual species as well?
+
+-   This can inform future summer bird surveys
+
+    -   Should we aim to be finished with our survey by 4 hours after sunrise?
+
+    -   There seems to be little advantage in continuing after this time
+
+-   Black-billed Cuckoo falls within this time frame, but seems to peak later in day than total population
+
+    -   Keep in mind extremely small sample size (18)
+
+    -   Will this pattern continue as we collect more data?
+
 ### Landscape Correlates for Black-billed Cuckoo Observations:
+
+-   Black-billed Cuckoos are correlated with forest landscapes, our data contradicts this
+
+    -   83% of observations occurred where there was at least some herbaceous landcape
+
+        -   56% occurred with at least 50% herbaceous landscape
+
+    -   27% occurred where at least some forest landscape
+
+        -   11% occurred with at least 50% forest landscape
+
+-   Why do they choose herbaceous landscape here?
+
+    -   What benefits is the herbaceous landscape providing in this area?
+
+-   We must take into account the very small sample size
+
+    -   is it small because there aren't many here or because of unskilled observers?
+
+    -   if because there aren't many there, is that because there isn't much forest here?
+
+        -   We could look into what percentage of our survey area consists of forest landscape
+
+    -   Will this pattern of herbaceous landscape continue as we collect more data?
 
 ## References
 
 -   Eastman J. 1991. "Black-billed Cuckoo." In The atlas of breeding birds of Michigan., edited by R. Brewer, G. A. McPeek and Jr R. J. Adams, 232-233. East Lansing: Michigan State Univ. Press.
 
--   Grolemund, Garrett and Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical
- Software, 40(3), 1-25. URL <https://www.jstatsoft.org/v40/i03/.>
+-   Grolemund, Garrett and Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <https://www.jstatsoft.org/v40/i03/.>
 
 -   Pfannmuller L, Niemi G, Green J, Sample B, Walton N, Zlonis E, Brown T, Bracey A, Host G, Reed J, Rewinkel K, Will N. 2017. The First Minnesota Breeding Bird Atlas (2009-2013). <https://mnbirdatlas.org/>
 
@@ -328,20 +376,16 @@ bare <- ggplot(data = bbc) +
 
 -   Thogmartin WE, Knutson MG. 2007. Scaling local species-habitat relations to the larger landscape with a hierarchical spatial count model. Landscape Ecology 22:61-75.
 
-```{=html}
 <!-- -->
-```
+
 -   Wickham, Hadley. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2016.
 
-```{=html}
 <!-- -->
-```
+
 -   Wickham, Hadley and Jennifer Bryan (2019). readxl: Read Excel Files. R package version 1.3.1. <https://CRAN.R-project.org/package=readxl>
 
-```{=html}
 <!-- -->
-```
+
 -   Wickham, Hadley, Romain François, Lionel Henry and Kirill Müller (2020). dplyr: A Grammar of Data Manipulation. R package version 1.0.2. <https://CRAN.R-project.org/package=dplyr>
 
--   Wickham, Hadley (2021). tidyr: Tidy Messy Data. R package version 1.1.3.
- <https://CRAN.R-project.org/package=tidyr>
+-   Wickham, Hadley (2021). tidyr: Tidy Messy Data. R package version 1.1.3. <https://CRAN.R-project.org/package=tidyr>
